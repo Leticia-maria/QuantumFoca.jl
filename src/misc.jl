@@ -10,7 +10,6 @@ function factorial2(number)
                 fact *= m
             end
         end
-
     elseif number%2==1
         for m in 1:number
             if m%2== 1
@@ -18,6 +17,5 @@ function factorial2(number)
             end
         end
     end
-
     return fact
 end

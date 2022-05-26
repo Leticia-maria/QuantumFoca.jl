@@ -1,5 +1,4 @@
 abstract type Basis end
-
 struct GaussianBasis<:Basis
     atomNo::Int
     orbital::String
@@ -14,4 +13,6 @@ end
 function build_sto3Gbasis(molecule::Molecule) -> Basis
     sto3Gbasis = []
     K = 0
+
+    
 end
