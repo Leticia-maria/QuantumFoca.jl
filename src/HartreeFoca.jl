@@ -1,5 +1,5 @@
 module HartreeFoca
-
-# Write your package code here.
-
+    using LinearAlgebra
+    using SpecialFunctions: gamma
+    using SpecialFunctions: gamma_inc
 end
