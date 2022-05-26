@@ -4,5 +4,4 @@ module HartreeFoca
     using SpecialFunctions: gamma_inc
 
     include("sto3g.jl")
-    
 end
