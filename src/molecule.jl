@@ -8,7 +8,7 @@ end
 
 struct XYZ{M<:Molecule} <: ChemicalFile end
 
-function Base.read(xyzfile::IO, ::XYZ{M}) where {M<:Molecule}
+function Base.read(xyzfile::IO, ::Type{XYZ{M}}) where {M<:Molecule}
     elements = String[]
     coordinates = Matrix{Float64}(undef, 3, 0)
 
@@ -26,4 +26,4 @@ function Base.read(xyzfile::IO, ::XYZ{M}) where {M<:Molecule}
     return M(elements, coordinates)
 end
 
-Base.read(input::IO, ::XYZ) = read(input, XYZ{Molecule})
+Base.read(input::IO, ::Type{XYZ{Molecule}}) = read(input, XYZ{Molecule})
