@@ -1,5 +1,5 @@
 module Foca
     include("molecule.jl")
-    export molecule
     export Molecule
+    export molecule
 end
