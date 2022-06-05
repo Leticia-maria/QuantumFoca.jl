@@ -3,5 +3,5 @@ module HartreeFoca
     using SpecialFunctions: gamma
     using SpecialFunctions: gamma_inc
 
-    include("sto3g.jl")
+    include("molecule.jl")
 end
