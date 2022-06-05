@@ -1,7 +1,7 @@
 abstract type ChemicalEntity end
 struct Molecule <: ChemicalEntity
     atoms::Vector{String}
-    coords::Matrix{Float64}
+    coords::Vector{Vector{Float64}}
 end
 
 function molecule(xyzfile::String) :: Molecule
