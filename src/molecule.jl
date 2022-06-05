@@ -6,7 +6,7 @@ struct Molecule <: ChemicalEntity
     coords::Matrix{Float64}
 end
 
-struct XYZ{M<:Molecule} <: ChemicalFile end
+struct XYZ{::Molecule} <: ChemicalFile end
 
 function Base.read(xyzfile::IO, ::Type{XYZ{M}}) where {M<:Molecule}
     elements = String[]
