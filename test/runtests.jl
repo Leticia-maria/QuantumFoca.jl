@@ -1,6 +1,6 @@
-using HartreeFoca
+using Foca
 using Test
 
-@testset "HartreeFoca.jl" begin
-    # Write your tests here.
+@testset "Foca.jl" begin
+    include("test_molecule.jl")
 end
