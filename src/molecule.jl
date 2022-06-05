@@ -1,12 +1,12 @@
 abstract type ChemicalEntity end
 
 abstract type ChemicalFile end
-
-struct XYZ{M<:Molecule} <: ChemicalFile end
 struct Molecule <: ChemicalEntity
     atoms::Vector{String}
     coords::Matrix{Float64}
 end
+
+struct XYZ{M<:Molecule} <: ChemicalFile end
 
 function Base.read(xyzfile::IO, ::Type{XYZ{M}}) where {M<:Molecule}
     elements = String[]
