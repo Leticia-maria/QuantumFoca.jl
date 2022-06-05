@@ -1,4 +1,4 @@
-@time @testset "molecule.jl"
+@time @testset "molecule.jl" begin
     methane() = IOBuffer("""
         4
         methane molecule
