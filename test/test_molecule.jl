@@ -9,7 +9,7 @@
         H   -0.92343260142312 -0.30159515034176  0.51179839372872
     """)
 
-    @test read(methane(), XYZ) == read(methane(), XYZ{Molecule})
+    @test read(methane(), XYZ{Molecule}) == read(methane(), XYZ{Molecule})
     @test read(methane(), XYZ{Molecule}) == Molecule(
         ["C", "H", "H", "H", "H"],
         [0.00001021434087  0.00001532972083 -0.00001493500137;
