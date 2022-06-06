@@ -1,7 +1,7 @@
 abstract type ChemicalEntity end
 struct Molecule <: ChemicalEntity
     atoms::Vector{String}
-    coords::Vector{Vector{Float64}}
+    coords::Matrix{Float64}
 end
 
 function molecule(xyzfile::String) :: Molecule
@@ -17,6 +17,7 @@ function molecule(xyzfile::String) :: Molecule
         coordinate = parse.(Float64, fields[2:4])
         push!(coordinates, coordinate)
     end
-
+    
+    coordinates = mapreduce(permutedims, vcat, coordinates)
     return Molecule(elements, coordinates)
 end
