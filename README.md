@@ -1,5 +1,5 @@
 # Foca.jl
-[![License](https://img.shields.io/github/license/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/blob/main/LICENSE)
+
 [![Issues](https://img.shields.io/github/issues-raw/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
 [![Build Status](https://img.shields.io/github/workflow/status/Leticia-maria/Foca.jl/CI?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Commit Activity](https://img.shields.io/github/commit-activity/w/Leticia-maria/Foca.jl/main?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
