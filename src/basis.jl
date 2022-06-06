@@ -10,7 +10,7 @@ struct GaussianBasis<:Basis
     d::Array{Float, 3}
 end 
 
-function build_sto3Gbasis(molecule::Molecule) -> Basis
+function build_sto3Gbasis(molecule::Molecule)
     sto3Gbasis = []
     K = 0
 
