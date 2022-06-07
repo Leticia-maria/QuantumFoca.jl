@@ -7,4 +7,7 @@ struct GaussianBasis <: Basis
     n::Int64
     α::Vector{Float64}
 end
+
+function basis(molecule::Molecule)
     
+end
