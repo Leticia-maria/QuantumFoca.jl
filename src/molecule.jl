@@ -24,4 +24,4 @@ function molecule(xyzfile::String) :: Molecule
     coordinates = mapreduce(permutedims, vcat, coordinates)
 
     return Molecule(elements, coordinates, Zvalues)
-end
+end    
