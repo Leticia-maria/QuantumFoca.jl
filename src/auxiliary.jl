@@ -1,7 +1,7 @@
 """
 This function calculate the double factorial of a number.
 """
-function factorial2(number)
+function doublefactorial(number)
     fact = one(number)
 
     if number%2==0
