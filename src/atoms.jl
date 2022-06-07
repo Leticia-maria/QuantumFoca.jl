@@ -10,3 +10,11 @@ Z = Dict(
     "F"  => 9, 
     "Ne" => 10
 )
+
+function orbitalconfig(Z::Int64)
+    if number < 3
+        return ["1s"]
+    else
+        return ["1s", "2s", "2p"]
+    end
+end
