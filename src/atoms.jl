@@ -12,7 +12,7 @@ Z = Dict(
 )
 
 function orbitalconfig(Z::Int64)
-    if number < 3
+    if Z < 3
         return ["1s"]
     else
         return ["1s", "2s", "2p"]
