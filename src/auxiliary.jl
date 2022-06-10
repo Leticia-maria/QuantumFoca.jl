@@ -3,30 +3,80 @@ This function calculate the double factorial of a number.
 """
 function doublefactorial(number)
     fact = one(number)
-
-    if number%2==0
+    if number % 2 == 0
         for m in 1:number
-            if m%2 == 0
+            if m % 2 == 0
                 fact *= m
             end
         end
-    elseif number%2==1
+    elseif number % 2 == 1
         for m in 1:number
-            if m%2== 1
+            if m % 2 == 1
                 fact *= m
             end
         end
     end
+
     return fact
 end
 
+"""Compute the square of the distance between two points.
+            |A|² = (Aₐ - Bₐ)² - (Aₑ - Bₑ)² - (Aₒ - Bₒ)². 
+The coefficients are multiplied by the (x,y,z) coordinates of the points.
 """
-gaussian_norm(α, l, m, n)
-Compute the normalization constant for a Gaussian primitive basis function.
-"""
-@inline function gaussian_norm(α, l::Int, m::Int, n::Int)
-    N = sqrt((2α / π)^3) * (4α)^(l + m + n)
-    κ = doublefactorial(2l - 1) * doublefactorial(2m - 1) * doublefactorial(2n - 1)
+function distance(Rᵢ, Rⱼ)
+    d = 0
+    for i in 1:3 
+        d += (Rᵢ[i] .- Rⱼ[i])^2
+    end
 
-    return sqrt(N / κ)
+    return d
 end
+
+function Norm(a, l, m, n)
+    Norm = (4 * a)^(l + m + n)
+    Norm /= doublefactorial(2 * l - 1) * 
+            doublefactorial(2 * m - 1) * 
+            doublefactorial(2 * n - 1)
+    Norm *= ((2*a)/π)^(3/2)
+    Norm = sqrt(Norm)
+
+    return Norm
+end
+
+function cₖ(j, l, m, a, b)
+    coefficient = 0
+    for k in 0:l
+        for i in 0:m
+            if (i + k == j)
+                coefficient += binomial(l, k) * 
+                               binomial(m, i) * 
+                               a^(l - k) * 
+                               b^(m - i)
+            end
+        end
+    end
+
+    return coefficient
+end
+
+function si(lA, lB, g, Aᵢ, Bᵢ, Pᵢ)
+    sᵢ = 0
+    floor = trunc(Int64, ((lA + lB) / 2))
+    for j in 0:floor
+        sᵢ += cₖ((2 * j), lA, lB, (Pᵢ - Aᵢ), (Pᵢ - Bᵢ)) * 
+              doublefactorial(2 * j - 1) / (2 * g)^j
+    end
+    sᵢ *= sqrt(π / g)
+    return sᵢ
+end
+
+function gaussianproduct(a, RA, b, RB, g)
+    P = []
+    for i in 1:3
+        push!(P, ((a * RA[i] + b * RB[i]) / g))
+    end
+
+    return hcat(P)
+end
+
