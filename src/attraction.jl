@@ -62,7 +62,7 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
     return Vxyz
 end
 
-function attraction(basis, molecule::Molecule)
+@inline function attraction(basis, molecule::Molecule)
     n = length(molecule.atoms)
     K = length(basis)
     V = zeros(K, K, n)
