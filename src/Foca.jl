@@ -4,6 +4,7 @@ module Foca
     include("sto3g.jl")
     include("basis.jl")
     include("auxiliary.jl")
+    include("overlap.jl")
     
     export Molecule
     export molecule

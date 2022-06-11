@@ -2,8 +2,8 @@ abstract type Basis end
 struct GaussianBasis <: Basis
     R::Vector{Float64}
     α::Vector{Float64}
-    dₐ::Vector{Float64}
-    l::Int64
+    d::Vector{Float64}
+    ℓ::Int64
     m::Int64
     n::Int64
 end
@@ -20,7 +20,7 @@ function buildbasis(molecule::Molecule)
                 push!(sto3g, GaussianBasis(
                     coord,
                     sto3g_α[number][1, :],
-                    sto3g_dₐ[1, :],
+                    sto3g_d[1, :],
                     0,
                     0,
                     0
@@ -29,7 +29,7 @@ function buildbasis(molecule::Molecule)
                 push!(sto3g, GaussianBasis(
                     coord,
                     sto3g_α[number][2, :],
-                    sto3g_dₐ[2, :],
+                    sto3g_d[2, :],
                     0,
                     0,
                     0
@@ -38,7 +38,7 @@ function buildbasis(molecule::Molecule)
                 push!(sto3g, GaussianBasis(
                     coord,
                     sto3g_α[number][2, :],
-                    sto3g_dₐ[3, :],
+                    sto3g_d[3, :],
                     1,
                     0,
                     0
@@ -46,7 +46,7 @@ function buildbasis(molecule::Molecule)
                 push!(sto3g, GaussianBasis(
                     coord,
                     sto3g_α[number][2, :],
-                    sto3g_dₐ[3, :],
+                    sto3g_d[3, :],
                     0,
                     1,
                     0
@@ -54,8 +54,8 @@ function buildbasis(molecule::Molecule)
                 push!(sto3g, GaussianBasis(
                     coord,
                     sto3g_α[number][2, :],
-                    sto3g_dₐ[3, :],
-                    0, # pₓ
+                    sto3g_d[3, :],
+                    0,
                     0,
                     1
                 ))

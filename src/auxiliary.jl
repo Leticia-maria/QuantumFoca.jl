@@ -33,26 +33,26 @@ function distance(Rᵢ, Rⱼ)
     return d
 end
 
-function Norm(a, l, m, n)
-    Norm = (4 * a)^(l + m + n)
-    Norm /= doublefactorial(2 * l - 1) * 
+function normalization(α, ℓ, m, n)
+    norm = (4 * α)^(ℓ + m + n)
+    norm /= doublefactorial(2 * ℓ - 1) * 
             doublefactorial(2 * m - 1) * 
             doublefactorial(2 * n - 1)
-    Norm *= ((2*a)/π)^(3/2)
-    Norm = sqrt(Norm)
+    norm *= ((2 * α) / π)^(3/2)
+    norm = sqrt(norm)
 
-    return Norm
+    return norm
 end
 
-function cₖ(j, l, m, a, b)
+function cₖ(j, l, m, A, B)
     coefficient = 0
     for k in 0:l
         for i in 0:m
             if (i + k == j)
                 coefficient += binomial(l, k) * 
                                binomial(m, i) * 
-                               a^(l - k) * 
-                               b^(m - i)
+                               A^(l - k) * 
+                               B^(m - i)
             end
         end
     end
@@ -60,23 +60,22 @@ function cₖ(j, l, m, a, b)
     return coefficient
 end
 
-function si(lA, lB, g, Aᵢ, Bᵢ, Pᵢ)
+function sᵢ(ℓᵢ, ℓⱼ, γ, Aᵢ, Bᵢ, Pᵢ)
     sᵢ = 0
-    floor = trunc(Int64, ((lA + lB) / 2))
+    floor = trunc(Int64, ((ℓᵢ + ℓⱼ) / 2))
     for j in 0:floor
-        sᵢ += cₖ((2 * j), lA, lB, (Pᵢ - Aᵢ), (Pᵢ - Bᵢ)) * 
-              doublefactorial(2 * j - 1) / (2 * g)^j
+        sᵢ += cₖ((2 * j), ℓᵢ, ℓⱼ, (Pᵢ - Aᵢ), (Pᵢ - Bᵢ)) * 
+              doublefactorial(2 * j - 1) / (2 * γ)^j
     end
-    sᵢ *= sqrt(π / g)
+    sᵢ *= sqrt(π / γ)
     return sᵢ
 end
 
-function gaussianproduct(a, RA, b, RB, g)
+function gaussianproduct(αᵢ, Rᵢ, αⱼ, Rⱼ, γ)
     P = []
     for i in 1:3
-        push!(P, ((a * RA[i] + b * RB[i]) / g))
+        push!(P, ((αᵢ * Rᵢ[i] + αⱼ * Rⱼ[i]) / γ))
     end
 
     return hcat(P)
 end
-
