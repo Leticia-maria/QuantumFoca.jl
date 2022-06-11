@@ -5,4 +5,5 @@ using Test
     include("molecule.jl")
     include("basis.jl")
     include("doublefactorial.jl")
+    include("normalization.jl")
 end
