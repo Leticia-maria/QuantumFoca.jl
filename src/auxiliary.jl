@@ -34,14 +34,14 @@ function distance(Rᵢ, Rⱼ)
 end
 
 function normalization(α, ℓ, m, n)
-    norm = (4 * α)^(ℓ + m + n)
-    norm /= doublefactorial(2 * ℓ - 1) * 
-            doublefactorial(2 * m - 1) * 
-            doublefactorial(2 * n - 1)
-    norm *= ((2 * α) / π)^(3/2)
-    norm = sqrt(norm)
+    N = (4 * α)^(ℓ + m + n)
+    N /= doublefactorial(2 * ℓ - 1) * 
+         doublefactorial(2 * m - 1) * 
+         doublefactorial(2 * n - 1)
+    N *= ((2 * α) / π)^(3/2)
+    N = sqrt(N)
 
-    return norm
+    return n
 end
 
 function cₖ(j, l, m, A, B)
@@ -62,8 +62,8 @@ end
 
 function sᵢ(ℓᵢ, ℓⱼ, γ, Aᵢ, Bᵢ, Pᵢ)
     sᵢ = 0
-    floor = trunc(Int64, ((ℓᵢ + ℓⱼ) / 2))
-    for j in 0:floor
+    floor₀ = trunc(Int64, ((ℓᵢ + ℓⱼ) / 2))
+    for j in 0:floor₀
         sᵢ += cₖ((2 * j), ℓᵢ, ℓⱼ, (Pᵢ - Aᵢ), (Pᵢ - Bᵢ)) * 
               doublefactorial(2 * j - 1) / (2 * γ)^j
     end
