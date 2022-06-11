@@ -14,4 +14,5 @@ module Foca
 
     export doublefactorial
     export gaussianproduct
+    export normalization
 end
