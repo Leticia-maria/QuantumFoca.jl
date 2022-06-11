@@ -1,4 +1,7 @@
 module Foca
+    using LinearAlgebra
+    using SpecialFunctions
+
     include("atoms.jl")
     include("molecule.jl")
     include("sto3g.jl")
