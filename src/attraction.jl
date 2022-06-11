@@ -17,12 +17,6 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
 
     Rₚ = gaussianproduct(αᵢ, Rᵢ, αⱼ, Rⱼ, γ)
 
-    IJ = distance(Rᵢ, Rⱼ)
-    println("IJ = $IJ")
-    PK = distance(Rₚ, Rₖ)
-    println("PK = $PK")
-
-
     Vxyz = 0
     
     for l in 0:(ℓᵢ + ℓⱼ)
@@ -40,7 +34,7 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
                                     for k in 0:trunc(Int64, ((n - (2 * t)) / 2))
                                         Vz = vᵢ(n, t, k, nᵢ, nⱼ, Rᵢ[3], Rⱼ[3], Rₖ[3], Rₚ[3], γ)
 
-                                        ν = l + m + n - 2 * (r + s + t) - (i - j - k)
+                                        ν = l + m + n - 2 * (r + s + t) - (i + j + k)
                                         F = boys(ν, (γ * abs(PK)))
 
                                         Vxyz += Vx * Vy * Vz * F

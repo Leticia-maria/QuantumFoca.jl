@@ -8,4 +8,5 @@ using Test
     include("normalization.jl")
     include("overlap.jl")
     include("kinetic.jl")
+    include("attraction.jl")
 end
