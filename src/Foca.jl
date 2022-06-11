@@ -10,6 +10,7 @@ module Foca
     include("overlap.jl")
     include("kinetic.jl")
     include("boys.jl")
+    include("attraction.jl")
     
     export Molecule
     export molecule

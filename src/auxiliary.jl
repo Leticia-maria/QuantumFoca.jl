@@ -62,8 +62,8 @@ end
 
 function sᵢ(ℓᵢ, ℓⱼ, γ, Aᵢ, Bᵢ, Pᵢ)
     sᵢ = 0
-    floor₀ = trunc(Int64, ((ℓᵢ + ℓⱼ) / 2))
-    for j in 0:floor₀
+
+    for j in 0:trunc(Int64, ((ℓᵢ + ℓⱼ) / 2))
         sᵢ += cₖ((2 * j), ℓᵢ, ℓⱼ, (Pᵢ - Aᵢ), (Pᵢ - Bᵢ)) * 
               doublefactorial(2 * j - 1) / (2 * γ)^j
     end
