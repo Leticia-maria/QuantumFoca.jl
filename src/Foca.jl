@@ -25,4 +25,5 @@ module Foca
     export overlap
     export kinetic
     export boys
+    export attraction
 end
