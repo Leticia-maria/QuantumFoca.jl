@@ -17,6 +17,9 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
 
     Rₚ = gaussianproduct(αᵢ, Rᵢ, αⱼ, Rⱼ, γ)
 
+    IJ = distance(Rᵢ, Rⱼ)
+    PK = distance(Rₚ, Rₖ)
+
     Vxyz = 0
     
     for l in 0:(ℓᵢ + ℓⱼ)
