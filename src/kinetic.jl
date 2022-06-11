@@ -1,8 +1,8 @@
 function Kxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ)
-    K  = b * (2 * (ℓⱼ + mⱼ + nⱼ) + 3) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ)
-    K -= (2 * (b^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ + 2, mᵢ, mⱼ, nᵢ, nⱼ) 
-    K -= (2 * (b^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ + 2, nᵢ, nⱼ)
-    K -= (2 * (b^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ + 2)
+    K  = αⱼ * (2 * (ℓⱼ + mⱼ + nⱼ) + 3) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ)
+    K -= (2 * (αⱼ^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ + 2, mᵢ, mⱼ, nᵢ, nⱼ) 
+    K -= (2 * (αⱼ^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ + 2, nᵢ, nⱼ)
+    K -= (2 * (αⱼ^2)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ + 2)
   
     K -= (1/2) * (ℓⱼ * (ℓⱼ - 1)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ - 2, mᵢ, mⱼ, nᵢ, nⱼ) 
     K -= (1/2) * (mⱼ * (mⱼ - 1)) * Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ - 2, nᵢ, nⱼ)
@@ -11,7 +11,7 @@ function Kxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ)
     return K
 end
 
-function buildT(basis, molecule::Molecule)
+function kinetic(basis, molecule::Molecule)
     K = length(basis)
     T = zeros(K, K)
 
@@ -37,5 +37,5 @@ function buildT(basis, molecule::Molecule)
         end
     end
 
-    return Tint
+    return T
 end
