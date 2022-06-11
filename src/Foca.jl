@@ -5,6 +5,7 @@ module Foca
     include("basis.jl")
     include("auxiliary.jl")
     include("overlap.jl")
+    include("kinetic.jl")
     
     export Molecule
     export molecule
@@ -16,4 +17,5 @@ module Foca
     export gaussianproduct
     export normalization
     export overlap
+    export kinetic
 end
