@@ -41,7 +41,7 @@ function normalization(α, ℓ, m, n)
     N *= ((2 * α) / π)^(3/2)
     N = sqrt(N)
 
-    return n
+    return N
 end
 
 function cₖ(j, l, m, A, B)
