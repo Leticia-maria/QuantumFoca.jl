@@ -15,4 +15,5 @@ module Foca
     export doublefactorial
     export gaussianproduct
     export normalization
+    export overlap
 end

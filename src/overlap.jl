@@ -13,16 +13,26 @@ function overlap(basis, molecule::Molecule)
     K = length(basis)
     S = zeros(K, K)
 
-    for i in 1:K, j in 1:K
-        ao₁ = basis[i]
-        ao₂ = basis[j]
-        S[i, j] += (exp.(-ao₁.α .* ao₂.α .* 
-                    distance(ao₁.R, ao₂.R) ./ 
-                    (ao₁.α .+ ao₂.α)) .*
-                    normalization.(ao₁.α, ao₁.ℓ, ao₁.m, ao₁.n) * 
-                    normalization.(ao₂.b, ao₂.ℓ, ao₂.m, ao₂.n) *
-                    ao₁.d .* ao₂.d .* 
-                    Sxyz(ao₁.R, ao₂.R, ao₁.α, ao₂.α, ao₁.ℓ, ao₂.ℓ, ao₁.m, ao₂.m, ao₁.n, ao₂.n))
+    for (i, basisᵢ) in enumerate(basis)
+        for (j, basisⱼ) in enumerate(basis)
+            for (αᵢ, dᵢ) in zip(basisᵢ.α, basisᵢ.d)
+                for (αⱼ, dⱼ) in zip(basisⱼ.α, basisⱼ.d)
+
+                    Rᵢ = basisᵢ.R
+                    Rⱼ = basisⱼ.R
+
+                    ℓᵢ, mᵢ, nᵢ = basisᵢ.ℓ, basisᵢ.m, basisᵢ.n
+                    ℓⱼ, mⱼ, nⱼ = basisⱼ.ℓ, basisⱼ.m, basisⱼ.n
+
+                    S[i, j] += (exp(-αᵢ * αⱼ * distance(Rᵢ, Rⱼ) / (αᵢ + αⱼ)) *
+                                normalization(αᵢ, ℓᵢ, mᵢ, nᵢ) *
+                                normalization(αⱼ, ℓⱼ, mⱼ, nⱼ) *
+                                dᵢ * dⱼ *
+                                Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ))
+                end
+            end
+        end
     end
+    
     return S
 end

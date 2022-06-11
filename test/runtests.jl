@@ -6,4 +6,5 @@ using Test
     include("basis.jl")
     include("doublefactorial.jl")
     include("normalization.jl")
+    include("overlap.jl")
 end
