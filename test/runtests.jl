@@ -7,4 +7,5 @@ using Test
     include("doublefactorial.jl")
     include("normalization.jl")
     include("overlap.jl")
+    include("kinetic.jl")
 end
