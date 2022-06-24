@@ -20,14 +20,14 @@ function gᵢ(l, lₚ, r, rₚ, i, ℓᵢ, ℓⱼ, A⃗, B⃗, P⃗, γ₁, ℓ�
     return gᵢ
 end
 
-function Gxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, ℓₖ, mₖ, nₖ, ℓᵥ, mᵥ, nᵥ, i, j, k, v, Rᵢ, Rⱼ, Rₖ, Rᵥ)
-    γ₁ = i + j
-    γ₂ = k + v
+function Gxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, ℓₖ, mₖ, nₖ, ℓᵥ, mᵥ, nᵥ, a, b, c, d, Rᵢ, Rⱼ, Rₖ, Rᵥ)
+    γ₁ = a + b
+    γ₂ = c + d
 
     δ = 1/(4 * γ₁) + 1/(4 * γ₂)
 
-    Rₚ = gaussianproduct(i, Rᵢ, j, Rⱼ, γ₁)
-    Rq = gaussianproduct(k, Rₖ, v, Rᵥ, γ₂)
+    Rₚ = gaussianproduct(a, Rᵢ, b, Rⱼ, γ₁)
+    Rq = gaussianproduct(c, Rₖ, d, Rᵥ, γ₂)
 
     IJ = distance(Rᵢ, Rⱼ)
     KV = distance(Rₖ, Rᵥ)
@@ -41,9 +41,53 @@ function Gxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, ℓₖ, mₖ, nₖ, ℓᵥ
                 for rₚ in 0:trunc(Int64, (lₚ / 2))
                     for i in 0:trunc(Int64, (l + lₚ - (2 * rₚ)) / 2)
                         gx = gᵢ(l, lₚ, r, rₚ, i, ℓᵢ, ℓⱼ, Rᵢ[1], Rⱼ[1], Rₚ[1], γ₁, ℓₖ, ℓᵥ, Rₖ[1], Rᵥ[1], Rq[1], γ₂)
+
+                        for m in 0:(mᵢ + mⱼ)
+                            for s in 0:trunc(Int64, (m / 2))
+                                for mₚ in 0:(mₖ + mᵥ)
+                                    for sₚ in 0:trunc(Int64, (mₚ / 2))
+                                        for j in 0:trunc(Int64, (m + mₚ - (2 * sₚ)) / 2)
+                                            gy = gᵢ(m, mₚ, s, sₚ, j, mᵢ, mⱼ, Rᵢ[2], Rⱼ[2], Rₚ[2], γ₁, mₖ, mᵥ, Rₖ[2], Rᵥ[2], Rq[2], γ₂)
+
+                                            for n in 0:(nᵢ + nⱼ)
+                                                for t in 0:trunc(Int64, (n / 2))
+                                                    for nₚ in 0:(nₖ + nᵥ)
+                                                        for tₚ in 0:trunc(Int64, (nₚ / 2))
+                                                            for k in 0:trunc(Int64, (n + nₚ - (2 * tₚ)) / 2)
+                                                                gz = gᵢ(n, nₚ, t, tₚ, k, nᵢ, nⱼ, Rᵢ[1], Rⱼ[1], Rₚ[1], γ₁, nₖ, nᵥ, Rₖ[1], Rᵥ[1], Rq[1], γ₂)
+
+                                                                ν = l + lₚ + m + mₚ + n + nₚ - 2 * (r + rₚ + s + sₚ + t + tₚ) - (i + j + k)
+                                                                F = boys(ν, (PQ / (4 * δ)))
+
+                                                                Gxyz += gx * gy * gz * F
+                                                            end
+                                                        end
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
                     end
                 end
             end
         end
     end
+
+    Gxyz *= (2 * π^2) / (γᵢ * γ₂)
+    Gxyz *= sqrt(π / (γ₁ + γ₂))
+    Gxyz *= exp(- (a * b * IJ) / γ₁)
+    Gxyz *= exp(- (c * d * KV) / γ₂)
+
+    Nᵢ = normalization(a, ℓᵢ, mᵢ, nᵢ)
+    Nⱼ = normalization(b, ℓⱼ, mⱼ, nⱼ)
+    Nₖ = normalization(c, ℓₖ, mₖ, nₖ)
+    Nᵥ = normalization(d, ℓᵥ, mᵥ, nᵥ)
+
+    Gxyz *= Nᵢ * Nⱼ * Nₖ * Nᵥ
+
+    return Gxyz
 end
+
