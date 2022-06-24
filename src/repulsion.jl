@@ -91,3 +91,48 @@ function Gxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, ℓₖ, mₖ, nₖ, ℓᵥ
     return Gxyz
 end
 
+function repulsion(basis. molecule)
+    K = length(basis)
+    V = zeros(K, K, K, K)
+
+    Ntei = 0
+
+    for (i, basisᵢ) in enumerate(basis)
+        for (j, basisⱼ) in enumerate(basis)
+            for (k, basisₖ) in enumerate(basis)
+                for (v, basisᵥ) in enumerate(basis)
+                    Ntei += 1
+
+                    for (αᵢ, dᵢ) in zip(basisᵢ.α, basisᵢ.d)
+                        for (αⱼ, dⱼ) in zip(basisⱼ.α, basisⱼ.d)
+                            for (αₖ, dₖ) in zip(basisₖ.α, basisₖ.d)
+                                for (αᵥ, dᵥ) in zip(basisᵥ.α, basisᵥ.d)
+
+                                    Rᵢ = basisᵢ.R
+                                    Rⱼ = basisⱼ.R
+                                    Rₖ = basisₖ.R
+                                    Rᵥ = basisᵥ.R
+
+                                    ℓᵢ, mᵢ, nᵢ = basisᵢ.ℓ, basisᵢ.m, basisᵢ.n
+                                    ℓⱼ, mⱼ, nⱼ = basisⱼ.ℓ, basisⱼ.m, basisⱼ.n
+                                    ℓₖ, mₖ, nₖ = basisₖ.ℓ, basisₖ.m, basisₖ.n
+                                    ℓᵥ, mᵥ, nᵥ = basisᵥ.ℓ, basisᵥ.m, basisᵥ.n
+
+                                    tei  = dᵢ * dⱼ * dₖ * dᵥ 
+                                    tei *= Gxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, ℓₖ, mₖ, nₖ, ℓᵥ, mᵥ, nᵥ, i, j, k, v, Rᵢ, Rⱼ, Rₖ, Rᵥ)
+
+                                    G[i, j, k, v] += tei
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return G
+end
+
+            
+                    
