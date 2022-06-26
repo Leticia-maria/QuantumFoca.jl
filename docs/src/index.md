@@ -1,9 +1,17 @@
-# Foca.jl
+# Foca.jl: An application for Computational Chemists
+## *The Julia package for calculating molecular integrals*
 
 ![HartreeFoca jl](https://user-images.githubusercontent.com/60739184/170071106-68ba0e42-08a5-4923-b69a-d5db945bdf7b.svg)
 
-*The Julia package for calculating molecular integrals*
+## Usage
 
+To install the package, you will call the Julia Package Manager on your REPL:
+
+```julia
+]add Foca
+```
+
+Done! Now it is *ready to use*
 ## Package Features
 
 - *Calculates overlap integrals*
