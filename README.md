@@ -14,7 +14,7 @@
 To install the package, you will call the Julia Package Manager on your REPL:
 
 ```julia
-]add Foca
+]add QuantumFoca
 ```
 
 Done! Now it is *ready to use*
