@@ -73,3 +73,49 @@ function Gxyz(lA, mA, nA, lB, mB, nB, lC, mC, nC, lD, mD, nD, a, b, c, d, RA, RB
 
     return Gxyz
 end
+
+function repulsion(basis, molecule::Molecule)
+    K = length(basis)
+    G = zeros(K, K, K, K)
+
+    Ntei = 0 
+
+    for (A, bA) in enumerate(basis)
+        for (B, bB) in enumerate(basis)
+            for (C, bC) in enumerate(basis)
+                for (D, bD) in enumerate(basis)
+
+                    Ntei += 1
+
+                    for (a, dA) in zip(bA.α, bA.d)
+                        for  (b, dB) in zip(bB.α, bB.d)
+                            for (c, dC) in zip(bC.α, bC.d)
+                                for (d, dD) in zip(bD.α, bD.d)
+
+                                    RA = bA.R 
+                                    RB = bB.R 
+                                    RC = bC.R 
+                                    RD = bD.R 
+
+                                    lA, mA, nA = bA.ℓ, bA.m, bA.n
+                                    lB, mB, nB = bB.ℓ, bB.m, bB.n
+                                    lC, mC, nC = bC.ℓ, bC.m, bC.n 
+                                    lD, mD, nD = bD.ℓ, bD.m, bD.n 
+
+                                    tei  = dA * dB * dC * dD
+                                    tei *= Gxyz(lA, mA, nA, lB, mB, nB, lC, mC, nC, lD, mD, nD, a, b, c, d, RA, RB, RC, RD)
+
+                                    G[A, B, C, D] += tei
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    G[A, B, C, D] += tei
+
+    return G
+end
