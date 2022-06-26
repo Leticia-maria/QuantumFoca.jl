@@ -8,6 +8,9 @@ function Sxyz(Rᵢ, Rⱼ, αᵢ, αⱼ, ℓᵢ, ℓⱼ, mᵢ, mⱼ, nᵢ, nⱼ)
     return Sx*Sy*Sz
 end
 
+"""
+This function calculates the overlap integrals
+"""
 function overlap(basis, molecule::Molecule)
     K = length(basis)
     S = zeros(K, K)

@@ -7,7 +7,10 @@ makedocs(
          sitename = "Foca.jl",
          modules  = [Foca],
          pages=[
-                "Home" => "index.md"
+                "Home" => "index.md",
+                "Example" => [
+                    "Overlap" => "overlap.md"
+                ]
                ])
                
 deploydocs(;
