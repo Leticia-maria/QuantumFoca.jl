@@ -1,5 +1,5 @@
 @time @testset "molecule.jl" begin
-    methane = molecule("methane.xyz")
+    methane = molecule("data/methane.xyz")
     @test methane.atoms  == ["C", "H", "H", "H", "H"]
     @test methane.coords == [0.00001021434087  0.00001532972083 -0.00001493500137;
                             -0.19951695340554  0.87894179053067 -0.62713882127936;
