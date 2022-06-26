@@ -3,3 +3,7 @@
 ```@docs
 GaussianBasis
 ```
+
+```@docs
+buildbasis(molecule::Molecule)
+```
