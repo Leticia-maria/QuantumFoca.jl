@@ -1,6 +1,6 @@
 ## The input system
 
-```@docs 
+```@docs
 ChemicalEntity
 Molecule
 ```
