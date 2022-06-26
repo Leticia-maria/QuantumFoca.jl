@@ -2,6 +2,9 @@
 
 ```@docs
 ChemicalEntity
+```
+
+```@docs
 Molecule
 ```
 
