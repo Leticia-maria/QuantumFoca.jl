@@ -1,10 +1,8 @@
-""" 
-```ChemicalEntity``` is an *abstract type* that englobes ```Molecule```, ```Atom```, ```AtomicOrbital``` and ```MolecularOrbital``` structures.
-"""
 abstract type ChemicalEntity end
 
 """
-```Molecule``` is a *subtype* of ```ChemicalEntity``` that stores coordinates, atomic symbols and atomic numbers as objects.
+```ChemicalEntity``` is an *abstract type* that englobes ```Molecule```, ```Atom```, ```AtomicOrbital``` and ```MolecularOrbital``` structures.
+```Molecule``` is a *subtype* of ```ChemicalEntity``` that stores coordinates, atomic symbols and atomic numbers as objects. 
 """
 struct Molecule <: ChemicalEntity
     atoms::Vector{String}
