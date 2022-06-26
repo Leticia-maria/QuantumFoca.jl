@@ -24,7 +24,7 @@ struct GaussianBasis <: Basis
 end
 
 """
-The ```buildbasis``` method takes a ```Molecule``` as input and return for us a ```GaussianBasis```. For example, let's open the same 
+The ```buildbasis``` method takes a ```Molecule``` as input and return for us an array of ```GaussianBasis``` types. For example, let's open the same 
 ```h2.xyz``` example. As a standard basis set, we use STO-3G data.
 
 ```julia
