@@ -49,8 +49,8 @@ sto3g = buildbasis(methane)
 With this information, we can build the molecular integrals.
 
 ```julia
-overlap(sto3g, methane)
-kinetic(sto3g, methane)
-attraction(sto3g, methane)
-repulsion(sto3g, methane)
+S = overlap(sto3g, methane)
+T = kinetic(sto3g, methane)
+V = attraction(sto3g, methane)
+G = repulsion(sto3g, methane)
 ```
