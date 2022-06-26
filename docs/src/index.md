@@ -58,3 +58,23 @@ T = kinetic(sto3g, methane)
 V = attraction(sto3g, methane)
 G = repulsion(sto3g, methane)
 ```
+
+## Citation
+
+A paper of this application is being prepared, but we already have a register in Zenodo.
+
+
+```
+@misc{foca2022,
+  howpublished = {\url{https://github.com/Leticia-maria/Foca.jl}}
+  year = {2022},
+  author = {Madureira, Leticia M. P. and Caramori, G. F.},
+  title = {
+    \textbf{Foca.jl}: a Julia library for calculating Molecular Integrals, v0.1.0
+  },
+  doi = {10.5281/zenodo.419452183},
+  url = {https://zenodo.org/record/419452183},
+  publisher = {Zenodo},
+  copyright = {Open Access}
+}
+```
