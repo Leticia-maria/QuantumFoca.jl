@@ -8,7 +8,7 @@ makedocs(
          modules  = [Foca],
          pages=[
                 "Home" => "index.md",
-                "Example" => [
+                "API" => [
                     "Overlap" => "overlap.md"
                 ]
                ])
