@@ -1,4 +1,4 @@
-module Foca
+module QuantumFoca
     using LinearAlgebra
     using SpecialFunctions
 

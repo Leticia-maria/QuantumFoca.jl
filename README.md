@@ -1,8 +1,8 @@
-# Foca.jl
+# QuantumFoca.jl
 
-[![Issues](https://img.shields.io/github/issues-raw/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
-[![Build Status](https://img.shields.io/github/workflow/status/Leticia-maria/Foca.jl/CI?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Commit Activity](https://img.shields.io/github/commit-activity/w/Leticia-maria/Foca.jl/main?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
+[![Issues](https://img.shields.io/github/issues-raw/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/QuantumFoca.jl/)
+[![Build Status](https://img.shields.io/github/workflow/status/Leticia-maria/Foca.jl/CI?style=for-the-badge)](https://github.com/Leticia-maria/QuantumFoca.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Commit Activity](https://img.shields.io/github/commit-activity/w/Leticia-maria/Foca.jl/main?style=for-the-badge)](https://github.com/Leticia-maria/QuantumFoca.jl/)
 [![DOI](https://zenodo.org/badge/419452183.svg)](https://zenodo.org/badge/latestdoi/419452183)
 
 ![HartreeFoca jl](https://user-images.githubusercontent.com/60739184/170071106-68ba0e42-08a5-4923-b69a-d5db945bdf7b.svg)
@@ -60,12 +60,12 @@ G = repulsion(sto3g, methane)
 ## Citation
 
 ```
-@misc{foca2022,
-  howpublished = {\url{https://github.com/Leticia-maria/Foca.jl}}
+@misc{quantumfoca2022,
+  howpublished = {\url{https://github.com/Leticia-maria/QuantumFoca.jl}}
   year = {2022},
   author = {Madureira, Leticia M. P. and Caramori, G. F.},
   title = {
-    \textbf{Foca.jl}: a Julia library for calculating Molecular Integrals, v0.1.0
+    \textbf{QuantumFoca.jl}: a Julia library for calculating Molecular Integrals, v0.1.0
   },
   doi = {10.5281/zenodo.419452183},
   url = {https://zenodo.org/record/419452183},

@@ -1,11 +1,11 @@
 push!(LOAD_PATH,"../src/")
 
-using Foca
+using QuantumFoca
 using Documenter
 
 makedocs(
-         sitename = "Foca.jl",
-         modules  = [Foca],
+         sitename = "QuantumFoca.jl",
+         modules  = [QuantumFoca],
          pages=[
                 "Home" => "index.md",
                 "API" => [
@@ -15,5 +15,5 @@ makedocs(
                ])
                
 deploydocs(;
-    repo="github.com/Leticia-maria/Foca.jl.git"
+    repo="github.com/Leticia-maria/QuantumFoca.jl.git"
 )
