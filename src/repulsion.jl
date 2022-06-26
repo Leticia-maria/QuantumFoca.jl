@@ -59,6 +59,22 @@ function Gxyz(lA, mA, nA, lB, mB, nB, lC, mC, nC, lD, mD, nD, a, b, c, d, RA, RB
                                                                 ν = l + lp + m + mp + n + np - 2 * (r + rp + s + sp + t + tp) - (i + j + k)
                                                                 F = boys(ν, PQ / (4 * δ))
                                                                 Gxyz += gx * gy * gz * F
+                                                            end
+                                                        end
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
     Gxyz *= (2 * π^2) / (gP * gQ)
     Gxyz *= sqrt(π / (gP + gQ))
     Gxyz *= exp(-(a * b * AB) / gP)
@@ -114,8 +130,6 @@ function repulsion(basis, molecule::Molecule)
             end
         end
     end
-
-    G[A, B, C, D] += tei
 
     return G
 end
