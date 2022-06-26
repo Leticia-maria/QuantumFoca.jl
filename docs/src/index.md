@@ -24,7 +24,7 @@ Done! Now it is *ready to use*
 
 ## Quick Example
 
-Consider that you want to calculate the electronic energy of a methane molecule. First, you will need the cartesian coordinates of the molecule of interest:
+Consider that you want to calculate the electronic energy of a methane molecule. First, you will need the cartesian coordinates of the molecule of interest. This information is stored in our ```methane.xyz``` file, formatted as follows:
 
 ```julia
 5
