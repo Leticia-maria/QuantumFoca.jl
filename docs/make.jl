@@ -15,5 +15,5 @@ makedocs(
                ])
                
 deploydocs(;
-    repo="github.com/Leticia-maria/Foca.jl.git",
+    repo="github.com/Leticia-maria/Foca.jl.git"
 )
