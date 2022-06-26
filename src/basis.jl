@@ -6,9 +6,9 @@ A basis set in theoretical and computational chemistry is a set of functions (ca
 electronic wave function in the Hartree–Fock method or density-functional theory in order to turn the partial differential equations 
 of the model into algebraic equations suitable for efficient implementation on a computer.
 The use of basis sets is equivalent to the use of an approximate resolution of the identity: 
-the orbitals ``|\psi _{i}\rangle`` are expanded within the basis set as a linear combination 
-of the basis functions ``|\psi _{i}\rangle \approx \sum _{\mu }c_{\mu i}|\mu \rangle``, where the expansion coefficients 
-``c_{\mu i}`` are given by ``c_{\mu i}=\sum _{\nu }\langle \mu |\nu \rangle ^{-1}\langle \nu |\psi _{i}\rangle``.
+the orbitals $$|\psi _{i}\rangle$$ are expanded within the basis set as a linear combination 
+of the basis functions $$|\psi _{i}\rangle \approx \sum _{\mu }c_{\mu i}|\mu \rangle$$, where the expansion coefficients 
+$$c_{\mu i}$$ are given by $$c_{\mu i}=\sum _{\nu }\langle \mu |\nu \rangle ^{-1}\langle \nu |\psi _{i}\rangle$$.
 The basis set can either be composed of atomic orbitals (yielding the linear combination of atomic orbitals approach), which is the 
 usual choice within the quantum chemistry community; plane waves which are typically used within the solid state community, or real-space 
 approaches. Several types of atomic orbitals can be used: Gaussian-type orbitals, Slater-type orbitals, or numerical atomic orbitals.
