@@ -2,10 +2,7 @@
 
 ```@docs 
 ChemicalEntity
-```
-
-```@docs 
-Molecule <: ChemicalEntity
+Molecule
 ```
 
 ```@docs
