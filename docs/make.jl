@@ -1,3 +1,5 @@
+push!(LOAD_PATH,"../src/")
+
 using Foca
 using Documenter
 
@@ -5,7 +7,7 @@ makedocs(
          sitename = "Foca.jl",
          modules  = [Foca],
          pages=[
-                "Home" => "src/index.md"
+                "Home" => "index.md"
                ])
                
 deploydocs(;
