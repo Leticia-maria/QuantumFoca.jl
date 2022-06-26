@@ -9,7 +9,7 @@ makedocs(
          pages=[
                 "Home" => "index.md",
                 "API" => [
-                    "Overlap" => "overlap.md"
+                    "Input" => "input.md"
                 ]
                ])
                
