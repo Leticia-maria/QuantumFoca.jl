@@ -9,7 +9,8 @@ makedocs(
          pages=[
                 "Home" => "index.md",
                 "API" => [
-                    "Input" => "input.md"
+                    "Input" => "input.md",
+                    "Basis Sets" => "basis.md"
                 ]
                ])
                
