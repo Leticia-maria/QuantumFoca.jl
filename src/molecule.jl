@@ -26,7 +26,6 @@ H      -1.331928651      0.434077746     -3.639854078
 In the first line, the file should contain the numer of atoms that are in the molecule. In the second line, there is a comment, which can be the *name of the compound*, 
 *molecular formula*, etc. To further information about ```.xyz``` files, [*click here*](https://www.reviversoft.com/file-extensions/xyz).
 """
-
 function molecule(xyzfile::String) :: Molecule
     elements = String[]
     coordinates = []
