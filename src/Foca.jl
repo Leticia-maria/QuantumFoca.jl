@@ -11,6 +11,7 @@ module Foca
     include("kinetic.jl")
     include("boys.jl")
     include("attraction.jl")
+    include("repulsion.jl")
     
     export Molecule
     export molecule
@@ -26,4 +27,5 @@ module Foca
     export kinetic
     export boys
     export attraction
+    export repulsion
 end

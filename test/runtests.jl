@@ -9,4 +9,5 @@ using Test
     include("overlap.jl")
     include("kinetic.jl")
     include("attraction.jl")
+    include("repulsion.jl")
 end
