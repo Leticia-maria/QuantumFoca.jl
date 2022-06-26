@@ -2,6 +2,10 @@
 
 ![HartreeFoca jl](https://user-images.githubusercontent.com/60739184/170071106-68ba0e42-08a5-4923-b69a-d5db945bdf7b.svg)
 
+[![Issues](https://img.shields.io/github/issues-raw/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
+[![Build Status](https://img.shields.io/github/workflow/status/Leticia-maria/Foca.jl/CI?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Commit Activity](https://img.shields.io/github/commit-activity/w/Leticia-maria/Foca.jl/main?style=for-the-badge)](https://github.com/Leticia-maria/Foca.jl/)
+
 ## Usage
 
 To install the package, you will call the Julia Package Manager on your REPL:
