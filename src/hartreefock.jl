@@ -1,4 +1,4 @@
-function computeenergy(basis, molecule::Molecule, maxiter = 20, convergence = 1e-6)
+function computeenergy2(basis, molecule::Molecule, maxiter = 20, convergence = 1e-6)
     S = overlap(basis, molecule)
     T = kinetic(basis, molecule)
     V = attraction(basis, molecule)
@@ -6,7 +6,7 @@ function computeenergy(basis, molecule::Molecule, maxiter = 20, convergence = 1e
 
     K = length(basis)
 
-    Hcore = T + V
+    Hcore = T .+ V
 
     D = zeros(K, K)
     P = zeros(K, K)
