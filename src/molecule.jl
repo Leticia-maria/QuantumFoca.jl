@@ -35,7 +35,7 @@ The example above works if the file is in the current directory that you are wor
 molecule(PATH)
 ```
 """
-function molecule(xyzfile::String) :: Molecule
+function molecule(xyzfile::String)::Molecule
     elements = String[]
     coordinates = []
     Zvalues = Int[]
@@ -50,8 +50,8 @@ function molecule(xyzfile::String) :: Molecule
         coordinate = parse.(Float64, fields[2:4])
         push!(coordinates, coordinate)
     end
-    
+
     coordinates = mapreduce(permutedims, vcat, coordinates)
 
     return Molecule(elements, coordinates, Zvalues)
-end    
+end

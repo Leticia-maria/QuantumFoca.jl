@@ -49,48 +49,28 @@ function buildbasis(molecule::Molecule)
 
         for orbital in orbitalconfig(number)
             if orbital == "1s"
-                push!(sto3g, GaussianBasis(
-                    coord,
-                    sto3g_α[number][1, :],
-                    sto3g_d[1, :],
-                    0,
-                    0,
-                    0
-                ))
+                push!(
+                    sto3g,
+                    GaussianBasis(coord, sto3g_α[number][1, :], sto3g_d[1, :], 0, 0, 0),
+                )
             elseif orbital == "2s"
-                push!(sto3g, GaussianBasis(
-                    coord,
-                    sto3g_α[number][2, :],
-                    sto3g_d[2, :],
-                    0,
-                    0,
-                    0
-                ))
+                push!(
+                    sto3g,
+                    GaussianBasis(coord, sto3g_α[number][2, :], sto3g_d[2, :], 0, 0, 0),
+                )
             elseif orbital == "2p"
-                push!(sto3g, GaussianBasis(
-                    coord,
-                    sto3g_α[number][2, :],
-                    sto3g_d[3, :],
-                    1,
-                    0,
-                    0
-                ))
-                push!(sto3g, GaussianBasis(
-                    coord,
-                    sto3g_α[number][2, :],
-                    sto3g_d[3, :],
-                    0,
-                    1,
-                    0
-                ))
-                push!(sto3g, GaussianBasis(
-                    coord,
-                    sto3g_α[number][2, :],
-                    sto3g_d[3, :],
-                    0,
-                    0,
-                    1
-                ))
+                push!(
+                    sto3g,
+                    GaussianBasis(coord, sto3g_α[number][2, :], sto3g_d[3, :], 1, 0, 0),
+                )
+                push!(
+                    sto3g,
+                    GaussianBasis(coord, sto3g_α[number][2, :], sto3g_d[3, :], 0, 1, 0),
+                )
+                push!(
+                    sto3g,
+                    GaussianBasis(coord, sto3g_α[number][2, :], sto3g_d[3, :], 0, 0, 1),
+                )
             end
         end
     end

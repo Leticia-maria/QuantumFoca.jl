@@ -1,7 +1,7 @@
 function vᵢ(l, r, i, ℓᵢ, ℓⱼ, Aᵢ, Bᵢ, Cᵢ, Pᵢ, γ)
     ϵ = 1 / (4 * γ)
 
-    vᵢ  = (-1)^l
+    vᵢ = (-1)^l
     vᵢ *= cₖ(l, ℓᵢ, ℓⱼ, Pᵢ - Aᵢ, Pᵢ - Bᵢ)
     vᵢ *= (-1)^i * factorial(l)
     vᵢ *= (Pᵢ - Cᵢ)^(l - (2 * r) - (2 * i)) * ϵ^(r + i)
@@ -21,21 +21,32 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
     PK = distance(Rₚ, Rₖ)
 
     Vxyz = 0
-    
-    for l in 0:(ℓᵢ + ℓⱼ)
-        for r in 0:trunc(Int64, (l / 2))
-            for i in 0:trunc(Int64, ((l - (2 * r)) / 2))
+
+    for l = 0:(ℓᵢ+ℓⱼ)
+        for r = 0:trunc(Int64, (l / 2))
+            for i = 0:trunc(Int64, ((l - (2 * r)) / 2))
                 Vx = vᵢ(l, r, i, ℓᵢ, ℓⱼ, Rᵢ[1], Rⱼ[1], Rₖ[1], Rₚ[1], γ)
 
-                for m in 0:(mᵢ + mⱼ)
-                    for s in 0:trunc(Int64, (m / 2))
-                        for j in 0:trunc(Int64, ((m - (2 * s)) / 2))
+                for m = 0:(mᵢ+mⱼ)
+                    for s = 0:trunc(Int64, (m / 2))
+                        for j = 0:trunc(Int64, ((m - (2 * s)) / 2))
                             Vy = vᵢ(m, s, j, mᵢ, mⱼ, Rᵢ[2], Rⱼ[2], Rₖ[2], Rₚ[2], γ)
 
-                            for n in 0:(nᵢ + nⱼ)
-                                for t in 0:trunc(Int64, (n / 2))
-                                    for k in 0:trunc(Int64, ((n - (2 * t)) / 2))
-                                        Vz = vᵢ(n, t, k, nᵢ, nⱼ, Rᵢ[3], Rⱼ[3], Rₖ[3], Rₚ[3], γ)
+                            for n = 0:(nᵢ+nⱼ)
+                                for t = 0:trunc(Int64, (n / 2))
+                                    for k = 0:trunc(Int64, ((n - (2 * t)) / 2))
+                                        Vz = vᵢ(
+                                            n,
+                                            t,
+                                            k,
+                                            nᵢ,
+                                            nⱼ,
+                                            Rᵢ[3],
+                                            Rⱼ[3],
+                                            Rₖ[3],
+                                            Rₚ[3],
+                                            γ,
+                                        )
 
                                         ν = l + m + n - 2 * (r + s + t) - (i + j + k)
                                         F = boys(ν, (γ * abs(PK)))
@@ -53,7 +64,7 @@ function Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, 
 
     Nᵢ = normalization(αᵢ, ℓᵢ, mᵢ, nᵢ)
     Nⱼ = normalization(αⱼ, ℓⱼ, mⱼ, nⱼ)
-    
+
     Vxyz *= (2 * π) / γ
     Vxyz *= exp(-αᵢ * αⱼ * abs(IJ) / γ)
     Vxyz *= Nᵢ * Nⱼ
@@ -76,12 +87,12 @@ function attraction(basis, molecule::Molecule)
                         Rᵢ = basisᵢ.R
                         Rⱼ = basisⱼ.R
                         Rₖ = molecule.coords[k, :]
-    
+
                         ℓᵢ, mᵢ, nᵢ = basisᵢ.ℓ, basisᵢ.m, basisᵢ.n
                         ℓⱼ, mⱼ, nⱼ = basisⱼ.ℓ, basisⱼ.m, basisⱼ.n
-                        
-                        V[i, j, k] += dᵢ * dⱼ *
-                                      Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, Rₖ, Z)
+
+                        V[i, j, k] +=
+                            dᵢ * dⱼ * Vxyz(ℓᵢ, mᵢ, nᵢ, ℓⱼ, mⱼ, nⱼ, αᵢ, αⱼ, Rᵢ, Rⱼ, Rₖ, Z)
                     end
                 end
             end

@@ -1,34 +1,34 @@
 module QuantumFoca
-    using LinearAlgebra
-    using SpecialFunctions
+using LinearAlgebra
+using SpecialFunctions
 
-    include("atoms.jl")
-    include("molecule.jl")
-    include("sto3g.jl")
-    include("basis.jl")
-    include("auxiliary.jl")
-    include("overlap.jl")
-    include("kinetic.jl")
-    include("boys.jl")
-    include("attraction.jl")
-    include("repulsion.jl")
-    include("hartreefock.jl")
-    
-    export Molecule
-    export molecule
+include("atoms.jl")
+include("molecule.jl")
+include("sto3g.jl")
+include("basis.jl")
+include("auxiliary.jl")
+include("overlap.jl")
+include("kinetic.jl")
+include("boys.jl")
+include("attraction.jl")
+include("repulsion.jl")
+include("hartreefock.jl")
 
-    export GaussianBasis
-    export buildbasis
+export Molecule
+export molecule
 
-    export doublefactorial
-    export gaussianproduct
-    export normalization
+export GaussianBasis
+export buildbasis
 
-    export overlap
-    export kinetic
-    export boys
-    export attraction
-    export repulsion
+export doublefactorial
+export gaussianproduct
+export normalization
 
-    export computeenergy                                                                                                    
+export overlap
+export kinetic
+export boys
+export attraction
+export repulsion
+
+export computeenergy
 end
