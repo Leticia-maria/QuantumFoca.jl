@@ -6,7 +6,7 @@ function computeenergy(basis, molecule::Molecule, maxiter = 20, convergence = 1e
 
     K = length(basis)
 
-    Hcore = T .+ V
+    Hcore = T + V
 
     D = zeros(K, K)
     P = zeros(K, K)
@@ -28,7 +28,7 @@ function computeenergy(basis, molecule::Molecule, maxiter = 20, convergence = 1e
             end
         end
 
-        F = Hcore + P
+        F = Hcore .+ P
         Fp = X .* F .* X
         Cp = eigvecs(Fp)
         C = X .* Cp
