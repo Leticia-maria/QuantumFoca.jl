@@ -12,6 +12,7 @@ module QuantumFoca
     include("boys.jl")
     include("attraction.jl")
     include("repulsion.jl")
+    include("hartreefock.jl")
     
     export Molecule
     export molecule
@@ -28,4 +29,6 @@ module QuantumFoca
     export boys
     export attraction
     export repulsion
+
+    export computeenergy                                                                                                    
 end
