@@ -1,3 +1,5 @@
+# THIS REPO WAS TRANSFERRED TO: [Ohata.jl](https://github.com/HartreeFoca/Ohata.jl)
+
 # QuantumFoca.jl
 
 [![Issues](https://img.shields.io/github/issues-raw/Leticia-maria/Foca.jl?style=for-the-badge)](https://github.com/Leticia-maria/QuantumFoca.jl/)
